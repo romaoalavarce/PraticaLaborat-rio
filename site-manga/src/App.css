@@ -1,0 +1,774 @@
+.app {
+    min-height: 100vh;
+}
+
+/* CABEÇALHO */
+
+.cabecalho {
+    background: white;
+    padding: 25px 50px;
+    border-bottom: 1px solid #e5e8ef;
+}
+
+.cabecalho-conteudo {
+    max-width: 1400px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    font-size: 30px;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.logo span {
+    color: #536dfe;
+}
+
+.subtitulo {
+    color: #7a8499;
+    margin: 5px 0 0;
+    font-size: 14px;
+}
+
+/* CONTEÚDO */
+
+main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 50px 50px;
+}
+
+/* BARRA DE AÇÕES */
+
+.barra-acoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+/* PESQUISA */
+
+.barra-pesquisa {
+    flex: 1;
+    max-width: 600px;
+}
+
+.barra-pesquisa input {
+    width: 100%;
+    padding: 14px 18px;
+
+    border: 1px solid #dce1ea;
+    border-radius: 10px;
+
+    background: white;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+.barra-pesquisa input:focus {
+    border-color: #536dfe;
+    box-shadow: 0 0 0 3px rgba(83, 109, 254, 0.1);
+}
+
+/* BOTÃO NOVO */
+
+.botao-novo {
+    border: none;
+    border-radius: 10px;
+
+    padding: 13px 20px;
+
+    background: #536dfe;
+    color: white;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.botao-novo:hover {
+    background: #4055d6;
+    transform: translateY(-1px);
+}
+
+/* INFORMAÇÕES */
+
+.informacoes {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 20px;
+
+    color: #69758c;
+    font-size: 14px;
+}
+
+/* LISTA */
+
+.lista-mangas {
+    margin-top: 25px;
+}
+
+.titulo-lista {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+}
+
+.titulo-lista h2 {
+    margin: 0;
+    font-size: 23px;
+}
+
+.titulo-lista span {
+    color: #7a8499;
+    font-size: 14px;
+}
+
+/* GRID DOS CARDS */
+
+.manga-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 22px;
+}
+
+/* CARD */
+
+.manga-card {
+    background: white;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    border: 1px solid #e6e9ef;
+
+    box-shadow: 0 3px 10px rgba(30, 45, 80, 0.05);
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.manga-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 8px 22px rgba(30, 45, 80, 0.12);
+}
+
+/* CAPA */
+
+.manga-capa {
+    width: 100%;
+    height: 280px;
+
+    background: #e9edf5;
+
+    overflow: hidden;
+}
+
+.manga-capa img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.capa-padrao {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 60px;
+
+    color: #8a94a6;
+}
+
+/* CONTEÚDO DO CARD */
+
+.manga-conteudo {
+    padding: 17px;
+}
+
+.manga-conteudo h3 {
+    margin: 0 0 12px;
+
+    font-size: 18px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.manga-conteudo p {
+    margin: 7px 0;
+
+    font-size: 13px;
+
+    color: #657087;
+}
+
+.manga-conteudo strong {
+    color: #303b52;
+}
+
+/* STATUS */
+
+.status {
+    display: inline-block;
+
+    margin-top: 8px;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.status.concluido {
+    background: #e0f7e9;
+    color: #16834a;
+}
+
+.status.andamento {
+    background: #fff1d8;
+    color: #b86a00;
+}
+
+/* DESCRIÇÃO */
+
+.manga-descricao {
+    margin-top: 15px;
+
+    padding: 12px;
+
+    background: #f5f7fa;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    color: #657087;
+
+    min-height: 65px;
+}
+
+/* BOTÃO EXCLUIR */
+
+.botao-excluir {
+    width: 100%;
+
+    margin-top: 14px;
+
+    padding: 9px;
+
+    border: 1px solid #e3e5ea;
+
+    border-radius: 7px;
+
+    background: white;
+
+    color: #d34b4b;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.botao-excluir:hover {
+    background: #fff1f1;
+    border-color: #f0baba;
+}
+
+/* LISTA VAZIA */
+
+.lista-vazia {
+    text-align: center;
+
+    padding: 60px 20px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    border: 1px solid #e6e9ef;
+}
+
+.lista-vazia span {
+    font-size: 50px;
+}
+
+.lista-vazia h3 {
+    margin: 15px 0 5px;
+}
+
+.lista-vazia p {
+    color: #777;
+    margin: 0;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 1100px) {
+    .manga-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 800px) {
+    .manga-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cabecalho {
+        padding: 20px 25px;
+    }
+
+    main {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 550px) {
+    .barra-acoes {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .barra-pesquisa {
+        max-width: none;
+    }
+
+    .manga-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* DESTAQUE */
+
+.destaque {
+    min-height: 300px;
+
+    margin-bottom: 35px;
+
+    padding: 35px 45px;
+
+    border-radius: 16px;
+
+    background: linear-gradient(
+        110deg,
+        #1d2942,
+        #354b78
+    );
+
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+.destaque-conteudo {
+    max-width: 650px;
+}
+
+.destaque-label {
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.destaque h2 {
+    margin: 0;
+
+    font-size: 38px;
+}
+
+.destaque-info {
+    margin: 10px 0;
+
+    font-size: 15px;
+
+    opacity: 0.8;
+}
+
+.destaque-descricao {
+    max-width: 550px;
+
+    line-height: 1.6;
+
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.destaque-status {
+    display: flex;
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.destaque-status span {
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.13);
+
+    font-size: 12px;
+}
+
+.destaque-imagem {
+    width: 220px;
+    height: 270px;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.destaque-imagem img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.destaque-capa-padrao {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 70px;
+}
+
+/* DESTAQUE VAZIO */
+
+.destaque.vazio {
+    min-height: 220px;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+.destaque.vazio h2 {
+    font-size: 25px;
+}
+
+.destaque.vazio p {
+    opacity: 0.7;
+}
+
+.estatisticas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.estatistica-card {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.estatistica-icone {
+    font-size: 30px;
+}
+
+.estatistica-card strong {
+    display: block;
+    font-size: 25px;
+}
+
+.estatistica-card p {
+    margin: 4px 0 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.filtros {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.filtro-grupo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filtro-grupo label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.filtro-grupo select {
+    padding: 10px 35px 10px 12px;
+    border: 1px solid #d8dce5;
+    border-radius: 8px;
+    background: white;
+    color: #1d2942;
+    cursor: pointer;
+}
+
+.modal-fundo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal {
+    position: relative;
+    width: 500px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+
+    padding: 30px;
+    border-radius: 15px;
+    background: white;
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-fechar {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+
+    border: none;
+    background: none;
+
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* =========================
+   FORMULÁRIO DE MANGÁ
+   ========================= */
+
+.manga-form {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-titulo {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.form-titulo h2 {
+    margin: 0 0 6px;
+    font-size: 26px;
+}
+
+.form-titulo p {
+    margin: 0;
+    color: #777;
+    font-size: 14px;
+}
+
+/* Espaçamento entre os campos */
+
+.manga-form form > div {
+    margin-bottom: 18px;
+}
+
+/* Labels */
+
+.manga-form label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Inputs */
+
+.manga-form input[type="text"],
+.manga-form input[type="number"],
+.manga-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 13px;
+    border: 1px solid #d6d6d6;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #fafafa;
+    transition: 0.2s;
+}
+
+.manga-form input[type="text"]:focus,
+.manga-form input[type="number"]:focus,
+.manga-form textarea:focus {
+    outline: none;
+    border-color: #7c3aed;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+}
+
+/* Descrição */
+
+.manga-form textarea {
+    min-height: 100px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+/* Lista de gêneros */
+
+.lista-generos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    max-height: 150px;
+    overflow-y: auto;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+/* Cada gênero */
+
+.lista-generos label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    padding: 7px;
+    border-radius: 6px;
+    font-weight: normal;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.lista-generos label:hover {
+    background-color: #eeeeff;
+}
+
+/* Checkbox */
+
+.lista-generos input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* Checkbox de concluído */
+
+.manga-form form > div:last-of-type label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.manga-form form > div:last-of-type input {
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+
+/* Botão */
+
+.manga-form button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #7c3aed;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.manga-form button[type="submit"]:hover {
+    background-color: #6d28d9;
+    transform: translateY(-1px);
+}
+
+.manga-form button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Mensagem */
+
+.manga-form > p {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+}
