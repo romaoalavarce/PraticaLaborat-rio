@@ -1,15 +1,10 @@
 from django.urls import path
 
-from .views import MangaListCreateView, MangaDeleteView, GeneroListView
+from .views import MangaListCreateView, GeneroListView, MangaDetailView
 
 
 urlpatterns = [
     path('mangas/', MangaListCreateView.as_view()),
-    path('mangas/<int:pk>/', MangaDeleteView.as_view()),
-]
-
-urlpatterns = [
-    path('mangas/', MangaListCreateView.as_view()),
-    path('mangas/<int:pk>/', MangaDeleteView.as_view()),
+    path('mangas/<int:pk>/', MangaDetailView.as_view()),
     path('generos/', GeneroListView.as_view()),
 ]

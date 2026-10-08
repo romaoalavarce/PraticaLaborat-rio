@@ -36,3 +36,8 @@ class GeneroListView(generics.ListAPIView):
 
     queryset = Genero.objects.all()
     serializer_class = GeneroSerializer
+
+class MangaDetailView(generics.RetrieveUpdateDestroyAPIView):
+
+    queryset = Manga.objects.all()
+    serializer_class = MangaSerializer
