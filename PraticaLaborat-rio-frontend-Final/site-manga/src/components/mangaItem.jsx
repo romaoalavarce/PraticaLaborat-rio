@@ -2,7 +2,7 @@ import { useState } from "react";
 import MangaDetalhes from "./mangaDetalhes";
 import ConfirmarExclusao from "./confirmarExclusao";
 
-function MangaItem({ manga, onDelete, generos = [] }) {
+function MangaItem({ manga, onDelete, onEdit, generos = [] }) {
 
     const [mostrarDetalhes, setMostrarDetalhes] = useState(false);
     const [mostrarConfirmacao, setMostrarConfirmacao] = useState(false);
@@ -110,6 +110,13 @@ function MangaItem({ manga, onDelete, generos = [] }) {
                         className="excluir-btn"
                     >
                         🗑️ Excluir
+                    </button>
+                    <button
+                        className="editar-btn"
+                        onClick={() => onEdit(manga)}
+
+                    >
+                        Editar
                     </button>
 
                 </div>

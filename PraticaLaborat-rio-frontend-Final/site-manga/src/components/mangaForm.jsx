@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function MangaForm({ onMangaCriado }) {
+function MangaForm({ onMangaCriado, mangaEditando, onMangaEditado }) {
 
     const [titulo, setTitulo] = useState("");
     const [erroTitulo, setErroTitulo] = useState("");
@@ -26,6 +26,21 @@ function MangaForm({ onMangaCriado }) {
             });
 
     }, []);
+
+    useEffect(() => {
+
+        if (mangaEditando) {
+            setTitulo(mangaEditando.titulo || "");
+            setAutor(mangaEditando.autor || "");
+            setArtista(mangaEditando.artista || "");
+            setGenerosSelecionados(mangaEditando.generos || []);
+            setConcluido(mangaEditando.concluido || false);
+            setDescricao(mangaEditando.descricao || "");
+            setNota(mangaEditando.nota || "");
+            setCapa(mangaEditando.capa || "");
+        }
+    }, [mangaEditando]);
+
 
     const handleGenero = (evento) => {
 
@@ -74,6 +89,34 @@ function MangaForm({ onMangaCriado }) {
 
         try {
 
+            if (mangaEditando) {
+                const response = await fetch(
+                    `http://127.0.0.1:8000/api/mangas/${mangaEditando.id}/`,
+                    {
+                        method: "PATCH",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(novoManga),
+                    }
+                );
+
+                if (!response.ok) {
+                    const erro = await response.json();
+
+                    console.log("ERRO DA API:", erro);
+
+                    throw new Error("Erro ao editar mangá.");
+                }
+
+                const mangaAtualizado = await response.json();
+
+                onMangaEditado(mangaAtualizado);
+
+                setMensagem("Mangá editado com sucesso!");
+            } else {
+
+             // Caso contrário, estamos CADASTRANDO
             const response = await fetch(
                 "http://127.0.0.1:8000/api/mangas/",
                 {
@@ -86,7 +129,9 @@ function MangaForm({ onMangaCriado }) {
             );
 
             if (!response.ok) {
-                throw new Error("Erro ao cadastrar mangá.");
+                const erro = await response.json();
+                console.log("Erro da API:", erro);
+                throw new Error("Erro ao cadastrar o mangá.");
             }
 
             const mangaCadastrado = await response.json();
@@ -101,20 +146,27 @@ function MangaForm({ onMangaCriado }) {
             setDescricao("");
             setNota("");
             setCapa("");
+
             setMensagem("Mangá cadastrado com sucesso!");
+        }
 
-        } catch (error) {
+    } catch (error) {
 
-            console.error(error);
+        console.error(error);
+
+        if (mangaEditando) {
+            setMensagem("Não foi possível editar o mangá.");
+        } else {
             setMensagem("Não foi possível cadastrar o mangá.");
         }
-    };
+    }
+};
 
    return (
             <div className="manga-form">
                 <div className="form-titulo">
-                    <h2>Cadastrar Mangá</h2>
-                    <p>Adicione um novo mangá à sua biblioteca</p>
+                    <h2>{mangaEditando ? "Editar Mangá" : "Cadastrar Mangá"}</h2>
+                    <p>{mangaEditando ? "Edite as informações do mangá" : "Adicione um novo mangá à sua biblioteca"}</p>
                 </div>
 
                     <form onSubmit={handleSubmit}>
@@ -247,7 +299,7 @@ function MangaForm({ onMangaCriado }) {
 
 
                 <button type="submit">
-                    Cadastrar
+                    {mangaEditando ? "Editar" : "Cadastrar"}
                 </button>
 
             </form>

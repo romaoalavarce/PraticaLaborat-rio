@@ -19,6 +19,7 @@ function App() {
     const [generos, setGeneros] = useState([]);
     const [carregando, setCarregando] = useState(true);
     const [erro, setErro] = useState([]);
+    const [mangaEditando, setMangaEditando] = useState(null);
 
 
     useEffect(() => {
@@ -55,6 +56,21 @@ function App() {
             ...mangasAtuais,
             novoManga
         ]);
+    };
+
+    const editarManga = (manga) => {
+        setMangaEditando(manga);
+        setMostrarFormulario(true);
+    }
+
+    const mangaFoiEditado = (mangaAtualizado) => {
+        setMangas((atuais) =>
+            atuais.map((manga) =>
+                manga.id === mangaAtualizado.id ? mangaAtualizado : manga)
+        );
+
+        setMangaEditando(null);
+        setMostrarFormulario(false);
     };
 
     const excluirManga = async (id) => {
@@ -170,7 +186,10 @@ function App() {
                 />
                 <button
                     className="botao-novo"
-                    onClick={() => setMostrarFormulario(true)}
+                    onClick={() => {
+                        setMangaEditando(null);
+                        setMostrarFormulario(true);
+                    }}
                 >
                     + Novo Mangá
                 </button>
@@ -218,6 +237,7 @@ function App() {
                 mangas={mangasFiltrados}
                 onDelete={excluirManga}
                 generos={generos}
+                onEdit={editarManga}
             />
             {mostrarFormulario && (
                 <div className="modal-fundo">
@@ -229,10 +249,12 @@ function App() {
                             X
                         </button>
                         <MangaForm
+                            mangaEditando={mangaEditando}
                             onMangaCriado={(novoManga) => {
                                 adicionarManga(novoManga);
                                 setMostrarFormulario(false);
                             }}
+                            onMangaEditado={mangaFoiEditado}
                         />
                     </div>
                 </div>

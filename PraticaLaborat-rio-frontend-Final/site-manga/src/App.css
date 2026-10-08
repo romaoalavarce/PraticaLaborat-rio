@@ -1396,3 +1396,33 @@ main {
     border-color: #123ba5;
     box-shadow: 0 0 0 2px rgba(18, 59, 165, 0.1);
 }
+
+.editar-btn {
+    padding: 10px 20px;
+
+    border: 1px solid #276ed8;
+
+    border-radius: 9px;
+
+    background: #276ed8;
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.editar-btn:hover {
+    background: #1e4bb8;
+
+    border-color: #1e4bb8;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 5px 15px rgba(39, 110, 216, 0.3);
+}

@@ -1,6 +1,6 @@
 import MangaItem from "./mangaItem";
 
-function MangaList({ mangas, onDelete, generos }) {
+function MangaList({ mangas, onDelete, onEdit, generos }) {
   return (
     <section className="lista-mangas">
       <div className="titulo-lista">
@@ -16,6 +16,7 @@ function MangaList({ mangas, onDelete, generos }) {
               manga={manga}
               onDelete={onDelete}
               generos={generos}
+              onEdit={onEdit}
             />
           ))}
         </div>
